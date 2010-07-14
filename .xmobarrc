@@ -1,0 +1,20 @@
+Config { font         = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u"  
+             , bgColor      = "#000000"
+             , fgColor      = "#00FFFF"
+	     , position =  Top
+             , lowerOnStart = False
+             , commands     = [ Run Network "wlan0" ["-L","0","-H","32","-l", "green", "--normal","orange","--high","red"] 40
+                              , Run Cpu ["<cpu0>/<cpu1>","-L","15","-H","55","-l","green","--normal","orange","--high","red"]   40
+                              , Run Cpu ["<cpu0>","-L","15","-H","55","-l","green","--normal","orange","--high","red"]  40
+                              , Run Memory ["-t","Mem: <usedratio>%", "-l", "green", "--normal","orange","--high","red"] 40
+			      , Run Swap ["-t","Swap:<usedratio>", "-l", "green", "--normal","orange","--high","red"] 40
+			      , Run Date "%a %b %_d %H:%M" "date" 60
+                              , Run CpuFreq ["-t","Freq: <cpu0> | <cpu1> GHz","-L","0","-H","2","-l","green","-n","orange","-h","red"] 50
+                              , Run Battery ["-L","50","-H","75","--high","green","--normal","yellow", "--low", "red"] 40
+                              , Run StdinReader
+                              ]
+             , sepChar      = "%"
+             , alignSep     = "}{"
+	     , template = " %StdinReader% }{%cpu% @ %cpufreq%<fc=#0033FF>|</fc>%memory%|%swap%<fc=#0033FF>|</fc>%wlan0%<fc=#0033FF>|</fc>%date%|%battery%"
+             }
+

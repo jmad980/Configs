@@ -1,9 +1,15 @@
 Collection of my config files that may be useful to others
-------
-XMonad: xmonad.hs/.xmobarrc
-------
+-------------------------------
+- XMonad: xmonad.hs/.xmobarrc -
+-------------------------------
 Modified versions of Jelly12gen's configs suitable for a laptop, using 
 terminal whereas I gave up on copy and paste in URxvt
 
 I also changed the mpd controls, perhaps poorly but it works for me 
 (TM) :)
+
+-----------
+- conkyrc -
+-----------
+My conkyrc writen off of looking at the manpage for a bit
+

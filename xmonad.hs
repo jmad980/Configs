@@ -61,7 +61,7 @@ main = do
         	, modMask = myModMask  
         	, terminal = myTerminal
 		, workspaces = myWorkspaces
-                , focusFollowsMouse = False
+                , focusFollowsMouse = True
 		}
  
  
@@ -75,7 +75,7 @@ myManageHook = scratchpadManageHook (W.RationalRect 0.25 0.375 0.5 0.35) <+> ( c
 		, className =?  "Xmessage" 	--> doCenterFloat 
 		, className =?  "Zenity" 	--> doCenterFloat 
 		, className =? "feh" 	--> doCenterFloat 
-                , className =? "Gimp"           --> doShift "9:gimp"
+               -- , className =? "Gimp"           --> doShift "9:gimp"
                 , className =? "uzbl"           --> doShift "2:web"
                 , className =? "vimprobable"           --> doShift "2:web"
                 , className =? "Pidgin"           --> doShift "1:chat"
@@ -164,7 +164,7 @@ myLayoutHook  =  onWorkspace "1:chat" imLayout $  onWorkspace "2:web" webL $  on
 -------------------------------------------------------------------------------
 ---- Terminal --
 myTerminal :: String
-myTerminal = "terminal"
+myTerminal = "roxterm"
  
 -------------------------------------------------------------------------------
 -- Keys/Button bindings --
@@ -268,11 +268,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask , xK_grave), scratchpadSpawnAction defaultConfig  {terminal = myTerminal}) 
  
     -- Libnotify
---    , ((modMask .|.  shiftMask, xK_a ), spawn "/home/jelle/bin/notify.py")
---    , ((modMask .|.  shiftMask, xK_m ), spawn "/home/jelle/Projects/Notify/mpd-notification.py")
---    , ((modMask .|.  shiftMask, xK_t ), spawn "/home/jelle/Projects/Notify/todo-notification.py")
---    , ((modMask .|.  shiftMask, xK_g ), spawn "/home/jelle/bin/notify-mail.py")
---    , ((modMask .|.  shiftMask, xK_v ), spawn "/home/jelle/Projects/Notify/sound-notification.py")
+  --  , ((modMask .|.  shiftMask, xK_a ), spawn "/home/jelle/bin/notify.py")
+  --  , ((modMask .|.  shiftMask, xK_m ), spawn "/home/jelle/Projects/Notify/mpd-notification.py")
+  --  , ((modMask .|.  shiftMask, xK_t ), spawn "/home/jelle/Projects/Notify/todo-notification.py")
+  --  , ((modMask .|.  shiftMask, xK_g ), spawn "/home/jelle/bin/notify-mail.py")
+  --  , ((modMask .|.  shiftMask, xK_v ), spawn "/home/jelle/Projects/Notify/sound-notification.py")
  
     --Programs
     , ((modMask .|.  shiftMask, xK_u ), spawn "unison-gtk2 default")

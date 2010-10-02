@@ -1,4 +1,9 @@
 Collection of my config files that may be useful to others
+-----------------
+- Dwm: config.h -
+-----------------
+Mostly stock dwm configureation, added volume keys and MPD keys
+
 -------------------------------
 - XMonad: xmonad.hs/.xmobarrc -
 -------------------------------

@@ -16,5 +16,9 @@ I also changed the mpd controls, perhaps poorly but it works for me
 -----------
 - conkyrc -
 -----------
-My conkyrc writen off of looking at the manpage for a bit
+Used for dwm with conky-cli
 
+-----------
+- Xinitrc -
+-----------
+I use startx, like real men ;)

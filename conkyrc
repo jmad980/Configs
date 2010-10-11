@@ -1,39 +1,15 @@
-alignment top_left
-background no
 cpu_avg_samples 2
-default_color black
+default_color White
 default_shade_color 101319
 draw_borders no
 draw_shades no
 double_buffer yes
-format_human_readable yes
-gap_x 5
-gap_y 10
-hddtemp_host 127.0.0.1
-maximum_width 300
-mpd_host 127.0.0.1
-mpd_port 6600
+#hddtemp_host 127.0.0.1
+#maximum_width 300
 no_buffers yes
-override_utf8_locale no
 update_interval 0.1
-update_interval_on_battery 1.0
+update_interval_on_battery 0.1
 
 
 TEXT
- 
- UTC: $utime
- $kernel $machine Processes: $processes
- CPU Freq: $freq CPU Hz: $freq_g 
- Memory: $mem/$memmax
- ACPItemp: $acpitemp HD TEMP: $hddtemp 
- Battery: $battery_percent% 
- Wireless Bitrate: ${wireless_bitrate wlan0}
- ${wireless_link_bar wlan0}
- Volume: $mixer
- $mixerbar
- Track : $mpd_title 
- Artist: $mpd_artist
- Album : $mpd_album
- $mpd_elapsed/$mpd_length $mpd_bar
- 
-
+${if_mpd_playing}$mpd_elapsed | $mpd_title | $endif$freq_g | $mem/$memmax% | $battery_percent% |${time %l:%M}

@@ -1,21 +1,27 @@
 /* See LICENSE file for copyright and license details. */
+/* External Programs used
+   amixer
+   mpc
+   dmpc
+   Terminal
+*/
 #include <X11/XF86keysym.h> /* makes XF86* keys work */
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#cccccc";
 static const char normbgcolor[]     = "#000000";
-static const char normfgcolor[]     = "#0027FF";
+static const char normfgcolor[]     = "#FFFFFF";
 static const char selbordercolor[]  = "#0066ff";
-static const char selbgcolor[]      = "#00000F";
-static const char selfgcolor[]      = "#0027FF";
+static const char selbgcolor[]      = "#0052FF";
+static const char selfgcolor[]      = "#FFFFFF";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
-static const Bool topbar            = True;     /* False means bottom bar */
+static const Bool topbar            = False;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "Chat", "Web", "3", "4", "Gimp", "6", "7", "8", "Junk" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -57,6 +63,7 @@ static const char *mpd_toggle[] = { "/usr/bin/mpc", "toggle", NULL };
 static const char *mpd_stop[] = { "/usr/bin/mpc", "stop", NULL };
 static const char *mpd_prev[] = { "/usr/bin/mpc", "prev", NULL };
 static const char *mpd_next[] = { "/usr/bin/mpc", "next", NULL };
+static const char *dmpc_start[] = { "/usr/bin/dmpc", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -82,13 +89,16 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
         { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+       /* Volume */
         { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = sound_up } },
         { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = sound_down } },
         { 0,                            XF86XK_AudioMute, spawn, {.v = sound_mute } },
+       /* MPD */ 
         { 0,                            XF86XK_AudioPlay, spawn, {.v = mpd_toggle } },
         { 0,                            XF86XK_AudioStop, spawn, {.v = mpd_stop } },
         { 0,                            XF86XK_AudioPrev, spawn, {.v = mpd_prev } },
         { 0,                            XF86XK_AudioNext, spawn, {.v = mpd_next } },
+        { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = dmpc_start } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

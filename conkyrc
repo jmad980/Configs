@@ -1,9 +1,6 @@
 cpu_avg_samples 2
 default_color White
 default_shade_color 101319
-draw_borders no
-draw_shades no
-double_buffer yes
 #hddtemp_host 127.0.0.1
 #maximum_width 300
 no_buffers yes

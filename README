@@ -2,23 +2,24 @@ Collection of my config files that may be useful to others
 -----------------
 - Dwm: config.h -
 -----------------
-Mostly stock dwm configureation, added volume keys and MPD keys
-
--------------------------------
-- XMonad: xmonad.hs/.xmobarrc -
--------------------------------
-Modified versions of Jelly12gen's configs suitable for a laptop, using 
-terminal whereas I gave up on copy and paste in URxvt
-
-I also changed the mpd controls, perhaps poorly but it works for me 
-(TM) :)
+Mostly stock dwm configureation, changed some colors and added Media keys (volume,mpd)
 
 -----------
 - conkyrc -
 -----------
-Used for dwm with conky-cli
+Used for dwm with conky-cli, run thru .xinitrc
 
 -----------
 - Xinitrc -
 -----------
 I use startx, like real men ;)
+
+-------------------------------
+- XMonad: xmonad.hs/.xmobarrc -(unmaintained, using dwm)
+-------------------------------
+Modified versions of Jelly12gen's configs suitable for a laptop, using 
+terminal whereas I gave up on copy and paste in URxvt
+I also changed the mpd controls, perhaps poorly but it works for me 
+(TM) :)
+
+

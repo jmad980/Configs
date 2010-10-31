@@ -9,4 +9,4 @@ update_interval_on_battery 0.1
 
 
 TEXT
-${if_mpd_playing}$mpd_elapsed | $mpd_title | $endif$freq_g | $mem/$memmax | $battery_percent% |${time %l:%M}
+${if_mpd_playing}$mpd_artist | $mpd_title | $endif$freq_g | $mem | $battery_percent% |${time %l:%M}

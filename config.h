@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+
 /* External Programs used
    amixer
    mpc
@@ -9,6 +9,8 @@
 
 #include <X11/XF86keysym.h> /* makes XF86* keys work */
 #include "gaplessgrid.c" /* gapless layout */
+#include "bstack.c"
+#include "bstackhoriz.c"
 /* appearance */
 static const char font[]            = "-*-GohuFont-*-*-*-*-12-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#8BB4FF";
@@ -21,7 +23,6 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = False;     /* False means bottom bar */
-
 /* tagging */
 static const char *tags[] = { "Chat", "Web", "3", "4", "Gimp", "6", "7", "8", "Junk" };
 
@@ -38,10 +39,12 @@ static const Bool resizehints = True; /* True means respect size hints in tiled 
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-        { "###",      gaplessgrid }, /* gapless */
+        { "[]=",      tile },    /* first entry is default */
 	{ "flt",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "===",  bstackhoriz}, 
+        { "[M]",      monocle },
+	{ "TTT",      bstack },
+        { "###",      gaplessgrid }, /* gapless */
 };
 
 /* key definitions */
@@ -57,7 +60,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "lilyterm", NULL };
+static const char *termcmd[]  = { "roxterm", NULL };
  /* Volume */
 static const char *sound_up[] = { "/usr/bin/amixer", "-q", "set", "Master", "3+", NULL };
 static const char *sound_down[] = { "/usr/bin/amixer", "-q", "set", "Master", "3-", NULL };
@@ -81,10 +84,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[3]} },
+        { MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },

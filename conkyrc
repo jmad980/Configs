@@ -9,4 +9,4 @@ update_interval_on_battery 0.1
 
 
 TEXT
-${if_mpd_playing}$mpd_artist | $mpd_title | $endif$freq_g | Free:$mem | BAT0:$battery_percent% | FAP:${execi 15 /home/jmad980/git/Bash-Stuff/fapleft}MB | ${time %l:%M}
+${if_mpd_playing}$mpd_artist | $mpd_title | $endif$freq_g | Memory:$mem | BAT0:$battery_percent% | FAP:${execi 15 /home/jmad980/git/Bash-Stuff/fapleft}MB |${time %l:%M}

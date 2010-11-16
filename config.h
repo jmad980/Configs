@@ -4,7 +4,7 @@
    mpc
    dmpc
    dmenu
-   Terminal (xfce)
+   xterm
 */
 
 #include <X11/XF86keysym.h> /* makes XF86* keys work */
@@ -29,8 +29,8 @@ static const char *tags[] = { "Chat", "Web", "3", "4", "Gimp", "6", "7", "8", "J
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "Namoroka", NULL,       NULL,       2,       False,       -1 },
-        { "MPlayer",  NULL,       NULL,       0,            True         -1 },
+	{ "Namoroka", NULL,       NULL,       2,            False,       -1 },
+        { "MPlayer",  NULL,       NULL,       0,            True,        -1 },
 };
 
 /* layout(s) */
@@ -60,7 +60,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "roxterm", NULL };
+static const char *termcmd[]  = { "xterm", NULL };
  /* Volume */
 static const char *sound_up[] = { "/usr/bin/amixer", "-q", "set", "Master", "3+", NULL };
 static const char *sound_down[] = { "/usr/bin/amixer", "-q", "set", "Master", "3-", NULL };
